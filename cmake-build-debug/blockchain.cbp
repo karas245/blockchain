@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="blockchain"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="D:/Programavimas/Blockchain/blockchain/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="blockchain">
+				<Option output="D:/Programavimas/Blockchain/blockchain/cmake-build-debug/blockchain.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Programavimas/Blockchain/blockchain/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 blockchain"/>
+					<CompileFile command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="blockchain/fast">
+				<Option output="D:/Programavimas/Blockchain/blockchain/cmake-build-debug/blockchain.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="D:/Programavimas/Blockchain/blockchain/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/i686-w64-mingw32"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include/c++/backward"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/include-fixed"/>
+					<Add directory="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/../lib/gcc/i686-w64-mingw32/8.1.0/../../../../i686-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 blockchain/fast"/>
+					<CompileFile command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="D:/Programavimas/Blockchain/blockchain/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="D:/Programavimas/Blockchain/blockchain/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="D:/Program Files (x86)/CLion 2019.1/mingw32/bin/mingw32-make.exe -f &quot;D:/Programavimas/Blockchain/blockchain/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="D:/Programavimas/Blockchain/blockchain/block.cpp">
+			<Option target="blockchain"/>
+		</Unit>
+		<Unit filename="D:/Programavimas/Blockchain/blockchain/block.h">
+			<Option target="blockchain"/>
+		</Unit>
+		<Unit filename="D:/Programavimas/Blockchain/blockchain/header.h">
+			<Option target="blockchain"/>
+		</Unit>
+		<Unit filename="D:/Programavimas/Blockchain/blockchain/main.cpp">
+			<Option target="blockchain"/>
+		</Unit>
+		<Unit filename="D:/Programavimas/Blockchain/blockchain/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
