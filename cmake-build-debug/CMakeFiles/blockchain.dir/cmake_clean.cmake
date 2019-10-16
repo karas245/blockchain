@@ -1,9 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/blockchain.dir/main.cpp.obj"
   "CMakeFiles/blockchain.dir/block.cpp.obj"
-  "blockchain.pdb"
+  "CMakeFiles/blockchain.dir/fun.cpp.obj"
+  "CMakeFiles/blockchain.dir/main.cpp.obj"
   "blockchain.exe"
   "blockchain.exe.manifest"
+  "blockchain.pdb"
   "libblockchain.dll.a"
 )
 

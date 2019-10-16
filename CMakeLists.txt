@@ -3,4 +3,4 @@ project(blockchain)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(blockchain main.cpp header.h block.cpp block.h)
+add_executable(blockchain main.cpp header.h block.cpp block.h fun.cpp)

@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+D:/Programavimas/Blockchain/blockchain/block.cpp
+block.h
+D:/Programavimas/Blockchain/blockchain/block.h
+
+D:/Programavimas/Blockchain/blockchain/block.h
+header.h
+D:/Programavimas/Blockchain/blockchain/header.h
+
 D:/Programavimas/Blockchain/blockchain/header.h
 iostream
 -
@@ -15,8 +23,12 @@ vector
 -
 string
 -
+ctime
+-
 
 D:/Programavimas/Blockchain/blockchain/main.cpp
 header.h
 D:/Programavimas/Blockchain/blockchain/header.h
+block.h
+D:/Programavimas/Blockchain/blockchain/block.h
 
