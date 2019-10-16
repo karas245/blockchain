@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <vector>
 #include <string>
+#include <ctime>
 
 using std::cout;
 using std::endl;

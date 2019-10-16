@@ -15,42 +15,116 @@ struct Transaction
 };
 class block {
 private:
+    string blockHash;
+
     string prevHash;
-    double timestamp;
-    int version;
+    time_t timestamp;
+    unsigned int version;
     string merkelTreeHash;
-    int nonce;
-    int dificultyTarget;
+    unsigned int nonce;
+    double dificultyTarget;
+
 
     vector<Transaction> transactions;
 
 
 
 public:
-    block(int prevHash, double timestamp,string version, string merkelTreeHash,int nonce,int dificultyTarget, string from,
-            string to, double amount, vector<Transaction> transactions);
+    block(){
+        this -> blockHash='0';
+        this -> prevHash='0';
+        this -> timestamp= time(0);
+        this -> version='0';
+        this -> merkelTreeHash='0';
+        this -> nonce=0;
+        this -> dificultyTarget='0';
+        vector<Transaction> transac;
+        Transaction TR;
+        TR.amount=2;
+        TR.from="JOHN";
+        TR.to="MARK";
+        transac.push_back(TR);
+        this -> transactions.push_back(TR);
+        printf("\nInitializing Block: %d ---- Hash: %s \n", version,blockHash.c_str());
+    }
 
     string getPrevHash(){
         return prevHash;
     }
-    double getTimestamo(){
-        return timestamp;
+    time_t getTimestamp(){
+        tm *ltm = localtime(&timestamp);
+        cout << 1900 + ltm->tm_year << "-" << 1 + ltm->tm_mon << "-" << ltm->tm_mday << "  " << ltm->tm_hour << ":"
+             << ltm->tm_min << ":" << ltm->tm_sec << endl;
+        return true;
     }
-    int getVersion(){
+    unsigned int getVersion(){
         return version;
     }
     string getMerkelTreeHash(){
         return merkelTreeHash;
     }
-    int getNonce() {
+
+    unsigned getNonce() {
         return nonce;
     }
-    int getDificultyTarget(){
+    double getDificultyTarget(){
         return dificultyTarget;
     }
     vector<Transaction> getTransactions() {
         return transactions;
     }
+
+    void setVersion(int v)
+    {
+        this -> version= v+1;
+    }
+    void setBlockHash()
+    {
+        string prehash;
+        int t=timestamp;
+        prehash= prevHash + merkelTreeHash + std::to_string(version) + std::to_string(t) + std::to_string(nonce)
+                + std::to_string(dificultyTarget);
+        //blockHash=homemadeHash(prehash);
+    }
+    void setTimestamp()
+    {
+        timestamp=time(0);
+    }
+    void setMerkelTreeHash()
+    {
+        vector<string> hashes;
+        string h;
+
+        for(int i=0;i<transactions.size();i++)
+        {
+            h=transactions[i].from + std::to_string(transactions[i].amount) + transactions[i].to;
+            //h=homeMadeHash(h);
+            hashes.push_back(h);
+        }
+
+        while(hashes.size() !=1)
+        {
+            if(hashes.size()%2 != 0)
+            {
+                h=hashes.back();
+                hashes.push_back(h);
+            }
+            int j=0;
+            for(int i=0;i<hashes.size();i=i+2)
+            {
+                hashes[j]= hashes[i] + hashes[i+1];
+                //hashes[j]=homeMadeHash(hashes[j]);
+                j++;
+            }
+            if(hashes.size()!=1)
+            hashes.resize(j+1);
+
+        }
+        merkelTreeHash=hashes[0];
+
+    }
+
+
 
 
 
