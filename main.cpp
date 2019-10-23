@@ -1,5 +1,7 @@
-#include "header.h"
+//#include "header.h"
 #include "block.h"
+
+//#include "picosha2.h"
 int main()
 {
     time_t now = time(0);
@@ -22,8 +24,33 @@ int main()
     TR.to="MARK";
     transac.push_back(TR);
 
+    /*unsigned long l= 4294967295;
+    cout << l << endl;
+    l++;
+    cout << l << endl;*/
+
+
+/*
+    string a1="0", a2="1";
+    string text=picosha2::hash256_hex_string(a1);
+    string text2=picosha2::hash256_hex_string(a2);
+    //cout << text << endl;
+    //cout << text2 << endl;
+    //if(text<text2)
+       // cout << " taip" << endl;*/
+
+
+    //block Block;
+    /*User user1;
+    user1.name="Jonas";
+    std::string hash_hex_str = picosha2::hash256_hex_string(user1.name);
+    std::cout << hash_hex_str << std::endl;*/
+
+    vector<Userdata> user;
+    generate(user);
+
     //Block1(hash,ver,treeHash,non,dificulty,transac);
-    cout << hash.c_str() << " --" << Block1[0].getVersion();
+    //cout << hash.c_str() << " --" << Block1[0].getVersion();
 
 
 
