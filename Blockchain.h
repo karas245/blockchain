@@ -10,9 +10,8 @@
 class Blockchain {
 public:
     vector<block> blocks;
-    Blockchain() { blocks.push_back(block());
-        cout << "CONSTRUCTOR" << endl;};
-    ~Blockchain() {cout << "DESTRUCTOR" << endl;};
+    Blockchain() { blocks.push_back(block());};
+    ~Blockchain() {};
 
 };
 

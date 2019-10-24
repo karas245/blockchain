@@ -12,7 +12,10 @@
 #include <ctime>
 #include <random>
 #include <sstream>
+#include <iomanip>
 //#include "block.h"
+
+
 
 
 using std::cout;
@@ -26,8 +29,18 @@ struct Userdata
     string hash;
     double balance;
 };
-
+struct Transaction
+{
+    string from;
+    string to;
+    double amount;
+    string Thash;
+};
 string stolenHash(string text);
-void generate(vector<Userdata> &user);
+void StartBlockchain();
+void generateUser( vector<Userdata> &user);
+void generateTransactions(vector<Transaction> &transac, vector<Userdata> &user);
+
+
 
 #endif //BLOCKCHAIN_HEADER_H

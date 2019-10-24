@@ -6,15 +6,14 @@ string stolenHash(string text)
 {
     return picosha2::hash256_hex_string(text);
 }
-void generate(vector<Userdata> &user)
+void generateUser( vector<Userdata> &user)
 {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> ran(4,11);
-    string ABC="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
     std::uniform_int_distribution<std::mt19937::result_type> rand(0,52);
     std::uniform_real_distribution<double> randA(100,1000000);
-
+    string ABC="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
     for(int j=0;j<1000;j++)
     {
         Userdata temp;
@@ -34,15 +33,18 @@ void generate(vector<Userdata> &user)
         temp.balance=randA(rng);
         user.push_back(temp);
     }
-    //cout << user[3].name << " " << user[3].hash << " " << user[3].balance << endl;
-    vector<Transaction> transac;
+}
+void generateTransactions(vector<Transaction> &transac, vector<Userdata> &user)
+{
     Transaction tempor;
+    std::random_device dev;
+    std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> randU(0,1000);
     std::uniform_real_distribution<double> randAmount(1,10000);
 
     for(int i=0;i<10000;i++)
     {
-        //transac.push_back(Transaction);
+
         tempor.from=user[randU(rng)].name;
         tempor.to=user[randU(rng)].name;
         if(tempor.to == tempor.from)
@@ -55,69 +57,144 @@ void generate(vector<Userdata> &user)
         }
         tempor.amount=randAmount(rng);
         transac.push_back(tempor);
-        //cout << transac[i].from << " " << transac[i].to << " = " << transac[i].amount << endl;
-    }
 
-    vector<block> Blockchain;//Blockchain.push_back(block());
-    //Blockchain[0].createGenesis();
-    //Blockchain blockchain;
+    }
+}
+void fillBlocks(vector<block> &Blockchain, vector<Transaction> &transac, vector<Userdata> &user)
+{
+    std::random_device dev;
+    std::mt19937 rng(dev());
     int count=0;
     vector<Transaction> tra;
+    vector<Transaction> tra1;
+    vector<Transaction> tra2;
+    vector<Transaction> tra3;
+    vector<Transaction> tra4;
+    vector<Transaction> tra5;
     int index=0;
     string text="0000000000000000000000000000000000000000000000000000000000000000";
+    std::uniform_int_distribution<std::mt19937::result_type> randT(0,10000);
     for(int i=0;i<10000;i++)
     {
 
-        //cout << "working" << endl;
-        tra.push_back(transac[i]);
-        //cout << transac[i].from << " " << transac[i].to << " = " << transac[i].amount << endl;
+        tra1.push_back(transac[randT(rng)]);
+        tra2.push_back(transac[randT(rng)]);
+        tra3.push_back(transac[randT(rng)]);
+        tra4.push_back(transac[randT(rng)]);
+        tra5.push_back(transac[randT(rng)]);
 
+        //cout << transac[i].from << " " << transac[i].to << " " << transac[i].amount << endl;
         if(i%100==99 && i!=0)
-        {   //cout << i << " " << transac[i].amount << endl;
-            //blockchain.blocks.push_back(block());
-            //blockchain.blocks[count].setTransactions(tra);
-
-            //if(i!=100)
+        {
 
             Blockchain.push_back(block());
             if(count==0)
             {
                 Blockchain[0].createGenesis();
             }
-            Blockchain[count].setTransactions(tra);
-            Blockchain[count].proofOfWork();
-            Blockchain[count].setVersion(count);
-            Blockchain[count].setPrevHash(text);
-            Blockchain[count].setBlockHash();
-            text=Blockchain[count].getBlockHash();
+            unsigned long req=1000000;
 
-            count++;
-            //Blockchain.push_back(block());
-            //tra.erase(tra.begin(), tra.end());
-            tra.clear();
-            //cout << "----" << tra.size() << endl;
-            //tra.resize(0);
+            //cout << Blockchain[count].getVersion() << endl;
+            for(int j=0;j<5;j++)
+            {
+                if(j==0)
+                {
+                    tra=tra1;
+                }
+                else if(j==2)
+                {
+                    tra=tra2;
+                }
+                else if(j==3)
+                {
+                    tra=tra3;
+                }
+                else if(j==4)
+                {
+                    tra=tra4;
+                }
+                else if(j==5)
+                {
+                    tra=tra5;
+                }
+
+                Blockchain[count].Ttesting(tra, user);
+                Blockchain[count].setTransactions(tra,user);
+                Blockchain[count].proofOfWork();
+
+                if(Blockchain[count].getNonce() < req)
+                {
+                    Blockchain[count].setVersion(count);
+                    Blockchain[count].setPrevHash(text);
+                    Blockchain[count].setBlockHash();
+                    text=Blockchain[count].getBlockHash();
+
+                    tra1.clear();
+                    tra2.clear();
+                    tra3.clear();
+                    tra4.clear();
+                    tra5.clear();
+
+
+                    count++;
+
+
+
+                    tra.clear();
+                    break;
+                }
+                if(i==4)
+                {
+                    req=req+1000000;
+                    i=0;
+                }
+                if(req > 4294967294)
+                {
+                    Blockchain.pop_back();
+
+                    break;
+                }
+
+            }
+
         }
+
     }
 
-
-    for(int i=0;i<Blockchain.size();i++)
+    for(auto &blo:Blockchain)
     {
-        Blockchain[i].setMerkelTreeHash();
-        //cout << Blockchain[i].getMerkelTreeHash() << " -*-*-" << i << endl;
-        //cout << Blockchain[i].getTransactions() << endl;
+        blo.setMerkelTreeHash();
     }
-    //cout << Blockchain[99].getTransactions() << endl;
+}
+void StartBlockchain()
+{
+    vector<Userdata> user;
+    generateUser(user);
 
-   /* for(int i=0;i<Blockchain.size();i++)
-    {
-        Blockchain[i].proofOfWork();
-    }*/
+    vector<Transaction> transac;
+    generateTransactions(transac,user);
 
-    //cout << " *****************************" << endl;
-    //Blockchain[0].proofOfWork();
+    vector<block> Blockchain;
+    fillBlocks(Blockchain,transac,user);
 
 
+   cout << "Number of existing blocks in blockchain: " << Blockchain[Blockchain.size()-1].getVersion()+1 << endl;
+   cout << "Which block information you want to see?" << endl;
+   int a;
+   std::cin>>a;
+   if(a<0 || a>Blockchain.size()-1)
+       cout << "You chose a block that doesnt exist";
+   else
+   {
+       cout << std::left << std::setw(20)<< "Block hash " << Blockchain[a].getBlockHash() << endl;
+       cout << std::left << std::setw(20)<< "Prev hash " << Blockchain[a].getPrevHash() << endl;
+       cout << std::left << std::setw(20)<< "Timestamp "; Blockchain[a].getTimestamp() ;
+       cout << std::left << std::setw(20)<< "Version  " << Blockchain[a].getVersion() << endl;
+       cout << std::left << std::setw(20)<< "Merkel Root " << Blockchain[a].getMerkelTreeHash() << endl;
+       cout << std::left << std::setw(20)<< "Nonce " << Blockchain[a].getNonce() << endl;
+       cout << std::left << std::setw(20)<< "Dificulty target " << Blockchain[a].getDificultyTarget() << endl;
+       Blockchain[a].getTransactions();
 
+   }
 
 }
